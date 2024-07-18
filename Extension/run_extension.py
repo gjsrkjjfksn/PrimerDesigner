@@ -43,7 +43,7 @@ def run_greedy(sequences_nt, mutreg_regions, args):
 
         print("Protein number:",i)
 
-        primer_f, primer_df = create_primer_df(sequences_nt,args)
+        primer_f, primer_df = create_primer_df(seq_nt,args)
 
         G = create_graph(primer_df, primer_f,len(mutreg_nt),args)
 
