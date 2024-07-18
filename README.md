@@ -2,6 +2,7 @@
 # PrimerDesigner
 
 ## Introduction
+
 This repository contains the source code for the PrimerDesigner project. 
 The main goal of this project is to create an algorithm for primer design for protein synthesis using microarray oligonucleotide probes. 
 The algorithm aims to find the most efficient primer set with complete coverage and no cross hybridization risk.
@@ -9,77 +10,59 @@ The program uses a primer graph to represent all valid forward and reverse prime
 It also uses Integer Linear Programming (ILP) with specific forbidden pair and single path constraints to find the best path in the primer graph.
 
 
-## Requirments
+## Requirements
 
-- PrimerDesigner requires Python 3.7 or higher.<br>
-- To run PrimerDesigner, you will need a local installation of Gurobi with an appropriate license (academic licenses are provided for free direct from Gurobi).<br>
-- You will also need to make sure that you are able to import Gurobi from within your local environment.<br>
-- The installs are located at the top of the colab file. Note also that a large RAM may be required due to the space complexity of ILP solvers. <br>
-- For the full sequence provided, a machine with 70 GB of RAM is sufficient. <br>
-
-## Getting Started
-<br>
-1. Clone the Repository:
-
-   ```
-   git clone https://github.com/OrensteinLab/PrimerDesigner.git
-   cd PrimerDesigner
-   ```
-<br>
-2. Open the PrimerDeisgner_relaxed.ipynb or PrimerDeisgner_non_relaxed.ipynb notebook using Jupyter or any compatible environment.
-<br>
-<br>
-3. Run the Notebook:
-   Execute the cells in the notebook to track timings and analyze the primer design process.
+The tool has been tested with the following configuration on a Linux machine:
+- Python 3.9.18
+- GurobiPy 11.0.2
+- NetworkX 3.2.1
+- NumPy 1.26.4
+- Pandas 2.1.2
 
 
-## Instructions
+## Setting Up the Tool
 
-- Input your gurobi ID and key in the beginning of the Gurobi Setup section <br><br>
+First,create a file named `gurobi.json` containing the details for the Gurobi license and put it in the main directory.
+
+```json
+{
+  "WLSACCESSID": "XXXXX",
+  "WLSSECRET": "XXXXX",
+  "LICENSEID": 12345
+}
 ```
-# input gurobi license id and key
-  params = {
-  "WLSACCESSID":"",
-  "WLSSECRET":"",
-  "LICENSEID":
-  }
-  env = gp.Env(params=params)
+## Running PrimerDesigner
 
-```
-- Define upstream, mutreg and downstream regions based on your protein coding sequence in the "Full Sequence" section <br><br>
+Create a file containing the protein coding-sequences and their names. Each line should contain and protein name and its DNA coding sequence, separated by a tab.
 
-```
-# define sequences 
-upstream_nt = "ATTTGAATGTATTTAGAAAAATAAACAAATAGGGGTTCCGCGCACATTTCCCCGAAAAGTGCTAGTGGTGCTAGCCCCGCGAAATTAAT..."
-mutreg_nt_full = "CAAAGCCCAGCACCTGCCGCAGCGCCTGCCCCTGCGGCACGTTCCATCGCAGCTACGCCTCCTAAACTGATCGTGGCAATTAGCGT..."
-downstream_nt = "GGAGGAGGGTCTGGGGGAGGAGGCAGTGGCATGGTGAGCAAGGGCGAGGAGCTGTTCACCGGGGTGGTGCCCATCCTGGTCGAGCTG..."
 
-```
-- You can adjust the algorithm parameters in the "Parameters" section. The parameters include the primer length range, overlap length range, oligonucleotide length range, number of proteins and maximum allowed overlap between primers <br><br>
+### Running the PrimerDesginer Algorithm
 
-```
-# algorithm parameters
-# adjust algorithm parameters
-primer_lmin, primer_lmax = 18, 30
-overlap_lmin,overlap_lmax = 45,50
-oligo_lmin,oligo_lmax = 195,205
-allowed_overlap = 6
-num_proteins=3
+To execute the PrimerDesginer algorithm, use the following command:
 
+```bash
+python ./tool.py --file_name <file-path> --version <version> 
 ```
-- You can choose to apply efficiency thresholds in the "Parameters" section by setting the apply_threshold flag to True. You can adjust the min and max thresholds on melting temeprature (tm) and gc content. In addition, you can set the maximum allowed tm difference between the forward and reverse primers in every pair .<br> 
-<br>
+- **file_path**: Only include the path of the file with the protein-coding sequences/
+- **version**: Specifies which version of the algorithm to run: either the Relaxed, Non-relaxed or the Extension (Default: Relaxed)
+- 
+The other arguments are optional and include the algorithm parameters:
 
-```
-# threshold params
-apply_threshold= True # apply threshold flag.
-min_gc=40
-max_gc=60
-min_tm=58
-max_tm=65
-max_difference=3 # max tm difference between forward & reverse primers
+- **primer_lmin, primer_lmax**: Minimum and maximum primer lengths (default:18,30).
+- **oligo_lmin, oligo_lmax**: Minimum and maximum oligo lengths (default: 195,205)
+- **overlap_lmin, overlap_lmax**: Minimum and maximum overlap between oligonucleotides  (default: 45,50)
+- **allowed_overlap**: Allowed overlap between primer_pairs (default:6)
+- **num_proteins**: Number of variants of the same sequence - used for relaxed version only (default:6)
+- **apply_threshold**: Boolean flag used for applying primer quality threshold (default: False)
+- **min_gc, max_gc**: Minimum and maximum threshold on gc content (default: 40,60)
+- **min_tm, max_tm**: Minimum and maximum threshold on melting temperature tm (default:58,65)
+- **max_difference**: Maximum difference between forward and reverse primer in each pair (default:3)
+- **merge_bins**: Boolean flag for merging bins corresponding to identical non-overlapping sequence - used for relaxed version (default:False)
+- 
 
+Example command:
+```bash
+python ./tool.py --file_path example_proteins.txt --version Non_relaxed --primer_lmin 20 --primer_lamx 26
 ```
-<br>
 
 
