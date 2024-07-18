@@ -43,7 +43,7 @@ To execute the PrimerDesginer algorithm, use the following command:
 ```bash
 python ./tool.py --file_name <file-path> --version <version> 
 ```
-- **file_path**: Only include the path of the file with the protein-coding sequences/
+- **file_path**: The file path of the protein coding-sequences
 - **version**: Specifies which version of the algorithm to run: either the Relaxed, Non-relaxed or the Extension (Default: Relaxed)
 - 
 The other arguments are optional and include the algorithm parameters:
