@@ -29,12 +29,11 @@ First, create a file named `gurobi.json` containing the details for the Gurobi l
   "LICENSEID": 12345
 }
 ```
-## Running PrimerDesigner
 
 Create a file containing the protein coding-sequences and their names. Each line should contain a protein's name and its DNA coding-sequence, separated by a tab.
 
 
-### Running the PrimerDesginer Algorithm
+## Running the PrimerDesigner Algorithm
 
 To execute the PrimerDesginer algorithm, use the following command:
 
@@ -50,7 +49,7 @@ The other arguments are optional and include the algorithm parameters:
 - **oligo_lmin, oligo_lmax**: Minimum and maximum oligonucleotides lengths (default: 195,205)
 - **overlap_lmin, overlap_lmax**: Minimum and maximum overlap length between oligonucleotides  (default: 45,50)
 - **allowed_overlap**: Allowed overlap between primer_pairs (default: 6)
-- **num_proteins**: Number of variants of the same sequence - used for Relaxed version only (default: 6)
+- **num_proteins**: Number of variants of the same sequence - used for Relaxed version only (default: 3)
 - **apply_threshold**: Boolean flag for applying primer quality threshold (default: False)
 - **min_gc, max_gc**: Minimum and maximum threshold on gc content (default: 40,60)
 - **min_tm, max_tm**: Minimum and maximum threshold on melting temperature tm (default: 58,65)
