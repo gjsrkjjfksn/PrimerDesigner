@@ -47,16 +47,16 @@ python ./tool.py --file_name <file-path> --version <version>
 The other arguments are optional and include the algorithm parameters:
 
 - **primer_lmin, primer_lmax**: Minimum and maximum primer lengths (default: 18,30).
-- **oligo_lmin, oligo_lmax**: Minimum and maximum oligo lengths (default: 195,205)
-- **overlap_lmin, overlap_lmax**: Minimum and maximum overlap between oligonucleotides  (default: 45,50)
+- **oligo_lmin, oligo_lmax**: Minimum and maximum oligonucleotides lengths (default: 195,205)
+- **overlap_lmin, overlap_lmax**: Minimum and maximum overlap length between oligonucleotides  (default: 45,50)
 - **allowed_overlap**: Allowed overlap between primer_pairs (default: 6)
-- **num_proteins**: Number of variants of the same sequence - used for relaxed version only (default: 6)
-- **apply_threshold**: Boolean flag used for applying primer quality threshold (default: False)
+- **num_proteins**: Number of variants of the same sequence - used for Relaxed version only (default: 6)
+- **apply_threshold**: Boolean flag for applying primer quality threshold (default: False)
 - **min_gc, max_gc**: Minimum and maximum threshold on gc content (default: 40,60)
 - **min_tm, max_tm**: Minimum and maximum threshold on melting temperature tm (default: 58,65)
-- **max_difference**: Maximum difference between forward and reverse primer in each pair (default: 3)
-- **merge_bins**: Boolean flag for merging bins corresponding to identical non-overlapping sequence - used for relaxed version (default: False)
-- 
+- **max_difference**: Maximum difference threshold between the forward and reverse primer in each pair (default: 3)
+- **merge_bins**: Boolean flag for merging bins corresponding to identical non-overlapping sequences - used for the Relaxed version (default: False)
+
 
 Example command:
 ```bash
