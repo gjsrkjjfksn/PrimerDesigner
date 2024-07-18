@@ -45,7 +45,7 @@ python ./tool.py --file_name <file-path> --version <version>
 ```
 - **file_path**: The file path of the protein coding-sequences
 - **version**: Specifies which version of the algorithm to run: either the Relaxed, Non-relaxed or the Extension (Default: Relaxed)
-- 
+  
 The other arguments are optional and include the algorithm parameters:
 
 - **primer_lmin, primer_lmax**: Minimum and maximum primer lengths (default:18,30).
