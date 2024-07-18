@@ -22,7 +22,7 @@ The tool has been tested with the following configuration on a Linux machine:
 
 ## Setting Up the Tool
 
-First,create a file named `gurobi.json` containing the details for the Gurobi license and put it in the main directory.
+First, create a file named `gurobi.json` containing the details for the Gurobi license and put it in the main directory.
 
 ```json
 {
