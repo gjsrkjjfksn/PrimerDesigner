@@ -30,8 +30,11 @@ First, create a file named `gurobi.json` containing the details for the Gurobi l
 }
 ```
 
-Create a file containing the protein coding-sequences and their names. Each line should contain a protein's name and its DNA coding-sequence, separated by a tab.
+Create a file containing the protein coding-sequences and their names. Each line should contain a protein's name and its DNA coding-sequence, separated by a tab. Example: 
 
+```text
+SHP2  ATGACATCGCGGAGATGGTTTCACCCAAATATCACTGGTGTGGAGGCAGAAAACCTACTGTTGACAAGAGGAGT....
+```
 
 ## Running the PrimerDesigner Algorithm
 
