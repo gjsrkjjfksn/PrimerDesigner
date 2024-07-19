@@ -38,10 +38,11 @@ Create a file containing the protein coding-sequences and their names. Each line
 To execute the PrimerDesginer algorithm, use the following command:
 
 ```bash
-python ./tool.py --file_path <file-path> --version <version> 
+python ./tool.py --file_path <file-path> --version <version> --output <output-file>
 ```
 - **file_path**: The file path of the protein coding-sequences
 - **version**: Specifies which version of the algorithm to run. Options: Relaxed, Non-relaxed or the Extension (default: Relaxed)
+- **output**: The file path that the program output will be saved to.
   
 The other arguments are optional and include the algorithm parameters:
 
@@ -59,7 +60,7 @@ The other arguments are optional and include the algorithm parameters:
 
 Example command:
 ```bash
-python ./tool.py --file_path example_proteins.txt --version Non_relaxed --primer_lmin 20 --primer_lamx 26
+python ./tool.py --file_path example_proteins.txt --version Non_relaxed --output run_output --primer_lmin 20 --primer_lamx 26 --oligo_lmin 180 --oligo_lmax 200
 ```
 
 
