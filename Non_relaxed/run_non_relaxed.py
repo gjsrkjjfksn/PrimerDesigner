@@ -54,4 +54,4 @@ def run_non_relaxed(mutreg_regions,sequences_nt,protein_names,args):
 
     # Convert the data to a DataFrame and save it as a CSV file
     run_df = pd.DataFrame(run_data)
-    run_df.to_csv('run_data_non_relaxed.csv', index=False)
+    run_df.to_csv(f'{args.output}.csv', index=False)
