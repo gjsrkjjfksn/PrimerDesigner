@@ -49,4 +49,4 @@ def run_relaxed_ilp(sequence_nt,mutreg_nt,args):
     df = pd.DataFrame(run_data)
 
     # Write the DataFrame to a CSV file
-    df.to_csv('run_data_relaxed.csv', index=False)
+    df.to_csv(f'{args.output}.csv', index=False)
