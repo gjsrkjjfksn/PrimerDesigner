@@ -1,5 +1,4 @@
 import itertools as it
-from General.args import ARGS
 
 
 class Primer:
