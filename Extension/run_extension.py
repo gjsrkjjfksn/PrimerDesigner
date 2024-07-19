@@ -26,7 +26,7 @@ def run_extension(sequences_nt, mutreg_regions, args):
     run_df = pd.DataFrame(run_data)
 
     # Write the DataFrame to a CSV file
-    run_df.to_csv('run_data_extension.csv', index=False)
+    run_df.to_csv(f'{args.output}.csv', index=False)
 
 
 
