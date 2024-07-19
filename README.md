@@ -14,8 +14,8 @@ The tool has been tested with the following configuration on a Linux machine:
 - Python 3.9.18
 - GurobiPy 11.0.2
 - NetworkX 3.2.1
-- NumPy 1.26.4
-- Pandas 2.1.2
+- NumPy 1.24.3
+- Pandas 2.1.3
 
 
 ## Setting Up the Tool
