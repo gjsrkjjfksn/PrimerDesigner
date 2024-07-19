@@ -16,6 +16,7 @@ The tool has been tested with the following configuration on a Linux machine:
 - NetworkX 3.2.1
 - NumPy 1.24.3
 - Pandas 2.1.3
+- Biopython: 1.75
 
 
 ## Setting Up the Tool
