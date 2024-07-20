@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This repository contains the source code for the PrimerDesigner, a tool designed to find the most efficient primer set with complete coverage and no cross hybridization risk for protein synthesis using assembly pcr. It accompanies the paper titled "PrimerDesigner: Designing efficient primers for protein synthesis without cross-hybridization."
+This repository contains the source code for the PrimerDesigner, a tool designed to find the most efficient primer set with complete coverage and no cross hybridization risk for protein synthesis using assembly PCR. It accompanies the paper titled "PrimerDesigner: Designing efficient primers for protein synthesis without cross-hybridization."
 
 ## Requirements
 
