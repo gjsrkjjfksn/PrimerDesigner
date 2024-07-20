@@ -6,7 +6,7 @@ import tracemalloc
 import pandas as pd
 
 
-def run_relaxed_ilp(sequence_nt,mutreg_nt,args):
+def run_relaxed_ilp(sequence_nt,mutreg_nt,protein_name,args):
     run_data = []
 
     primer_f, primer_df = create_primer_df(sequence_nt, args)
@@ -30,7 +30,9 @@ def run_relaxed_ilp(sequence_nt,mutreg_nt,args):
     numVars, numConstrs, setup_time, setup_memory, ILP_time, ILP_memory, actual_values, objective = ilp_model(graph,
                                                                                                               sequence_nt,
                                                                                                               mutreg_nt, args)
-    run_data.append({"Nodes": len(graph.nodes),
+    run_data.append({
+                    "protein name":protein_name,
+                    "Nodes": len(graph.nodes),
                      "Edges": len(graph.edges),
                      "Time (Graph)": graph_time,
                      "MP (Graph)": graph_memory,

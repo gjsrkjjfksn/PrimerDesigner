@@ -16,9 +16,9 @@ def main():
     if args.version =="Non_relaxed":
         run_non_relaxed(mutreg_regions,full_sequences,protein_names,args)
     elif args.version == "Extension":
-        run_extension(full_sequences, mutreg_regions, args)
+        run_extension(full_sequences, mutreg_regions, protein_names,args)
     else: # relaxed version is default
-        run_relaxed_ilp(full_sequences[0],mutreg_regions[0],args) # only runs on first sequence
+        run_relaxed_ilp(full_sequences[0],mutreg_regions[0],protein_names[0],args) # only runs on first sequence
 
 if __name__ == '__main__':
     main()

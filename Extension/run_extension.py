@@ -9,9 +9,9 @@ import pandas as pd
 mutreg_start=len(upstream_nt)
 
 
-def run_extension(sequences_nt, mutreg_regions, args):
+def run_extension(sequences_nt, mutreg_regions,protein_names, args):
     start_time = time.time()
-    greedy_solution, greedy_obj, cross_cnt, protein_cnt, re_iterations = run_greedy(sequences_nt, mutreg_regions,args)
+    greedy_solution, greedy_obj, cross_cnt, protein_cnt, re_iterations = run_greedy(sequences_nt, mutreg_regions,protein_names,args)
     greedy_time = time.time() - start_time
 
     run_data = []
@@ -30,16 +30,16 @@ def run_extension(sequences_nt, mutreg_regions, args):
 
 
 
-def run_greedy(sequences_nt, mutreg_regions, args):
+def run_greedy(sequences_nt, mutreg_regions,protein_names, args):
 
-    path_ls = []
+    path_ls={}
     selected_primers = []
     total_cost = 0
     proteins_cnt =0
     cross_cnt = 0
     re_iterations=0
 
-    for i,(seq_nt, mutreg_nt) in enumerate(zip(sequences_nt, mutreg_regions)):
+    for i,(seq_nt, mutreg_nt,protein) in enumerate(zip(sequences_nt, mutreg_regions,protein_names)):
 
         print("Protein number:",i)
 
@@ -85,16 +85,16 @@ def run_greedy(sequences_nt, mutreg_regions, args):
             if cross:
                 G.remove_nodes_from(nodes_to_remove)
             else:
-              # add selected primers to forbidden list
+              # add selected primers to forbidden primer list
               selected_primers.extend([seq_nt[start+mutreg_start:end+mutreg_start] for start,end,fr in shortest_path])
-              path_ls.append(shortest_path)
+              path_ls[protein]=shortest_path # save shortest path
               # Calculate the cost for the found path
               primer_set = primer_df.loc[[p for p in shortest_path]].copy().reset_index()
               primer_cost = primer_set['cost'].sum()
               total_cost += primer_cost
 
 
-        # if more than 1 iterations it means that there was cross-hybridization in this protein
+        # if there was more than 1 iteration it means that there was cross-hybridization in this protein
         if iterations>1:
           proteins_cnt+=1
 
