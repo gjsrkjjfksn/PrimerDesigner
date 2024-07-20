@@ -38,7 +38,7 @@ CXAR  ATGGCGCTCCTGCTGTGCTTCGTGCTCCTGTGCGGAGTAGTGGATTTCGCCAGAAGTTTGAGTATCACTACTCC
 
 ## Running PrimerDesginer
 
-To execute the PrimerDesginer, use the following command:
+To execute PrimerDesginer, use the following command:
 
 ```bash
 python ./tool.py --file_path <file-path> --version <version> --output <output-file>
