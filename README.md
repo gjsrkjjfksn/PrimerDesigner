@@ -63,7 +63,7 @@ The other arguments are optional and include the algorithm parameters:
 
 Example command:
 ```bash
-python ./tool.py --file_path example_proteins.txt --version Non_relaxed --output run_output --primer_lmin 20 --primer_lamx 26 --oligo_lmin 180 --oligo_lmax 200
+python ./tool.py --file_path example_proteins.txt --version Non_relaxed --output run_output --primer_lmin 20 --primer_lmax 26 --oligo_lmin 180 --oligo_lmax 200
 ```
 
 
