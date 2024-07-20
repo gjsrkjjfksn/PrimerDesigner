@@ -3,10 +3,7 @@
 
 ## Introduction
 
-This repository contains the source code for the PrimerDesigner project. 
-The main goal of this project is to create an algorithm for primer design for protein synthesis using microarray oligonucleotide probes. 
-The algorithm aims to find the most efficient primer set with complete coverage and no cross hybridization risk.
-It uses a primer graph to represent all valid forward and reverse primer combinations and Integer Linear Programming (ILP) with forbidden pair and single path constraints to find an optimal solution
+This repository contains the source code for the PrimerDesigner, a tool designed to find the most efficient primer set with complete coverage and no cross hybridization risk for protein synthesis using assembly pcr. It accompanies the paper titled "PrimerDesigner: Designing efficient primers for protein synthesis without cross-hybridization."
 
 ## Requirements
 
@@ -32,22 +29,22 @@ First, create a file named `gurobi.json` containing the details for the Gurobi l
 }
 ```
 
-Create a file containing the protein coding-sequences and their names. Each line should contain a protein's name and its DNA coding-sequence, separated by a tab. Example: 
+Create a text file containing the protein names and their DNA coding-sequences. Each line should contain a protein's name and its DNA coding-sequence, separated by a tab. For example: 
 
 ```text
 SHP2  ATGACATCGCGGAGATGGTTTCACCCAAATATCACTGGTGTGGAGGCAGAAAACCTACTGTTGACAAGAGGAGT....
 CXAR  ATGGCGCTCCTGCTGTGCTTCGTGCTCCTGTGCGGAGTAGTGGATTTCGCCAGAAGTTTGAGTATCACTACTCC....
 ```
 
-## Running the PrimerDesigner Algorithm
+## Running PrimerDesginer
 
-To execute the PrimerDesginer algorithm, use the following command:
+To execute the PrimerDesginer, use the following command:
 
 ```bash
 python ./tool.py --file_path <file-path> --version <version> --output <output-file>
 ```
 - **file_path**: The file path of the protein coding-sequences
-- **version**: Specifies which version of the algorithm to run. Options: Relaxed, Non-relaxed or the Extension (default: Relaxed)
+- **version**: Specifies which version of the algorithm to run. The options are: Relaxed, Non-relaxed or the Extension (default: Relaxed)
 - **output**: The file path that the program output will be saved to.
   
 The other arguments are optional and include the algorithm parameters:
