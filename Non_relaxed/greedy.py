@@ -25,7 +25,7 @@ def run_greedy(graphs, primer_dfs,multiple_forbidden,protein_names):
       print(f'WARNING: No feasible primer sequence for lib_{i}; reduce number of libraries or relax constraints.')
 
   primer_set = pd.DataFrame()
-  for i,primer_ls in enumerate(path_ls):
+  for i,primer_ls in enumerate(path_ls.values()):
     protein = protein_names[i]
     primer_df = primer_dfs[protein]
     primer_set1 = primer_df.loc[primer_ls].copy().reset_index()
