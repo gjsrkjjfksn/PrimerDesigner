@@ -44,7 +44,7 @@ To execute PrimerDesginer, use the following command:
 python ./tool.py --file_path <file-path> --version <version> --output <output-file>
 ```
 - **file_path**: The file path of the protein coding-sequences
-- **version**: Specifies which version of the algorithm to run. The options are: Relaxed, Non-relaxed or the Extension (default: Relaxed)
+- **version**: Specifies which version of the algorithm to run. The options are: Relaxed, Non_relaxed or the Extension (default: Relaxed)
 - **output**: The file path that the program output will be saved to.
   
 The other arguments are optional and include the algorithm parameters:
