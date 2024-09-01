@@ -41,7 +41,7 @@ def run_greedy(sequences_nt, mutreg_regions,protein_names, args):
 
     for i,(seq_nt, mutreg_nt,protein) in enumerate(zip(sequences_nt, mutreg_regions,protein_names)):
 
-        print("Protein number:",i)
+        print("Running protein number:",i)
 
         primer_f, primer_df = create_primer_df(seq_nt,args)
 

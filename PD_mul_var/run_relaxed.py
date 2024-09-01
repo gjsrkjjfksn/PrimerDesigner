@@ -11,13 +11,11 @@ def run_relaxed_ilp(sequence_nt,mutreg_nt,protein_name,args):
 
     primer_f, primer_df = create_primer_df(sequence_nt, args)
 
-    print(primer_df)
 
     # Creating the Graph
     start_time = time.time()
     tracemalloc.start()
     graph = create_graph(primer_df, primer_f, len(mutreg_nt), args)
-    print(graph)
     graph_time = int(time.time() - start_time)
     graph_memory = tracemalloc.get_traced_memory()[1] / 10 ** 6  # MB
     tracemalloc.stop()

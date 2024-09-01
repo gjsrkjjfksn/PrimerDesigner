@@ -6,6 +6,7 @@ from General.constants import *
 
 
 def ilp_model(graph, sequence_nt, mutreg_nt, args):
+    print("Running ILP")
     setup_start = time.time()
     tracemalloc.start()
     # Create Model
