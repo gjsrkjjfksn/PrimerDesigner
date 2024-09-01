@@ -18,20 +18,23 @@ The tool has been tested with the following configuration on a Linux machine:
 
 ## The Different Versions
 
-**PrimerDesigner** has three different version options:
+**PrimerDesigner** has 4 different version options:
 
-- **Relaxed**
+- **PD-single**
+  - Finds the optimal primer set for a single protein by computing the shortest path in the primer graph.
+  - Runs only on the first protein-coding sequence in the sequence file.
+
+- **PD-mul-var**
   - Finds the optimal primer set for a number of variants of the same protein-coding sequence.
   - Runs only on the first protein-coding sequence in the sequence file.
-  - Imposes ILP constraints on primer overlap.
 
-- **Non-relaxed**
-  - Finds the optimal primer set for multiple non-homologous proteins.
-  - Identifies all forbidden primer pairs in the provided sequences and adds them as ILP constraints.
-
-- **Extension**
-  - Finds the optimal primer set for multiple proteins by computing the shortest path in each protein primer graph.
+- **PD-mul-nh**
+  - Finds the optimal primer set for multiple non-homologous proteins by computing the shortest path in each protein primer graph.
   - If there are primers in the shortest path that cross-hybridize with previously selected primers, it removes these primers from the graph and computes the shortest path again.
+
+- **Non relaxed**
+  - Finds the optimal primer set for multiple non-homologous proteins.
+  - Identifies all primers pairs that may cross-hybridize and adds them as forbidden pair ILP constraints.
 
 
 ## Setting Up the Tool
