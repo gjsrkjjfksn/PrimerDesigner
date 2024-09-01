@@ -38,7 +38,7 @@ def run_single(sequence_nt,mutreg_nt,protein_name,args):
                      "Time (Graph)": graph_time,
                      "MP (Graph)": graph_memory,
                     "Shortest path": shortest_path,
-                    "Cost": primer_cost
+                    "Cost": primer_cost,
                     "Total time":total_time
     })
 
