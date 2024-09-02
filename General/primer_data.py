@@ -1,7 +1,7 @@
 import pandas as pd
 import primer3 as p3
 from Bio.Seq import Seq
-from Bio.SeqUtils import GC
+from Bio.SeqUtils import gc_fraction
 from General.constants import *
 
 
@@ -47,7 +47,7 @@ def create_primer_df(sequence_nt,args):
   primer_df.sort_values(by=['start','stop','fr'], inplace=True)
 
   #Calculating "Cost" Values
-  primer_df['gc'] = primer_df.seq.apply(GC)
+  primer_df['gc'] = primer_df.seq.apply(gc_fraction)
   primer_df['tm'] = primer_df.seq.apply(pcr.calc_tm)
   res = primer_df.seq.apply(lambda s: pcr.calc_hairpin(s).todict())
   primer_df['hp_tm'] = res.apply(lambda res: res['tm'])
